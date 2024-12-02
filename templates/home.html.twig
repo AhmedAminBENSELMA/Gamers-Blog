@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+{% import 'Macros/post.twig' as post %}
+
+{% block title %}
+    {{ parent() }}  - Home
+{% endblock %}
+
+
+{% block body %}
+    <body class="hold-transition dark-mode sidebar-mini">
+    <div class="wrapper">
+        {% include 'navbar.html.twig' %}
+        {% include 'sideMenu.html.twig' %}
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Home</h1>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                {% include 'new_post.html.twig' %}
+                <!-- Default box -->
+                <div class="card card-solid">
+                    <div class="card-body pb-0">
+                        <div class="row">
+
+                            {% for post in posts %}
+
+                                    {{ post.post(post) }}
+                            {% endfor %}
+                        </div>
+
+
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+
+            </section>
+                    <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+
+
+            <!-- /.content -->
+        </div>
+
+     </div>
+
+    </body>
+{% endblock %}
+
